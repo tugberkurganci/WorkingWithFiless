@@ -1,11 +1,7 @@
 import java.io.*;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.*;
 
-public class business{
+public class  Business{
 
     public static String duplicateWords(String contents) throws IOException {
 
@@ -23,11 +19,23 @@ public class business{
         return resultFullname.trim();
     }
 
-    public static String boşlukReis(String contents) throws IOException {
-        return contents.replaceAll("( )+", " ");
-
-
+    public static String removeExtraSpace(String input) throws IOException {
+        input= input.trim();
+        ArrayList<String> x= new ArrayList<>(Arrays.asList(input.split("")));
+        for(int i=0; i<x.size()-1;i++) {
+            if(x.get(i).equals(" ") && x.get(i+1).equals(" ")) {
+                x.remove(i);
+                i--;
+            }
+        }
+        String word="";
+        for(String each: x)
+            word+=each;
+        return word;
     }
+
+
+
     public static String generateFullName(String fullname){
         String resultFullname="";
 
@@ -59,5 +67,10 @@ public class business{
             }
         }
         return result.toString();
+    }
+    public static String functionMix(String contents) throws IOException {
+        return Business.capitalizeSentence(Business.generateFullName(Business.removeExtraSpace(Business.duplicateWords(contents))));
+
+
     }
 }

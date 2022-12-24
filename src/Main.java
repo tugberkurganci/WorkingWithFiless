@@ -6,16 +6,15 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        readFile rFile=new readFile();
-        WriteFile writeFile =new WriteFile();
-        business wFile = new business();
+        FileInfo rFile=new FileInfo();
+        EditText editText =new EditText();
+        Business business1 = new Business();
 
         String contents=new String(Files.readAllBytes(Paths.get("C:\\USERS\\tugberk\\Desktop\\tugberk.txt")));
-
-        String a = business.capitalizeSentence(business.generateFullName(business.boşlukReis(business.duplicateWords(contents))));
-        System.out.println(contents);
-        WriteFile.dosyaYazz(a);
-        System.out.println(a);
+        rFile.readFile();
+        business1.functionMix(contents);
+        editText.editInput(business1.functionMix(contents));
+        rFile.readFile();
 
     }
 }

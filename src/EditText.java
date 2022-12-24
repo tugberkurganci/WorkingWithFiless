@@ -2,8 +2,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class WriteFile {
-    public static void dosyaYazz(String a) {
+public class EditText {
+    public static void editInput(String a) {
 
         File f =new File("C:\\USERS\\tugberk\\Desktop\\tugberk.txt");
 
