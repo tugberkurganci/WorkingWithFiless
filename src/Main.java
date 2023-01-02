@@ -1,21 +1,21 @@
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.*;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        FileInfo rFile=new FileInfo();
-        EditText editText =new EditText();
-        Business business1 = new Business();
+        System.out.println("File process is starting");
 
-        String contents=new String(Files.readAllBytes(Paths.get("C:\\USERS\\tugberk\\Desktop\\tugberk.txt")));
-        rFile.readFile();
-        business1.functionMix(contents);
-        editText.editInput(business1.functionMix(contents));
-        rFile.readFile();
+        String content = "";
 
+        FileReader fileReader = new FileReader();
+        TextEditor textEditor = new TextEditor();
+        TextWriter textWriter = new TextWriter();
+
+        content = fileReader.readFile();
+        content = textEditor.editText(content);
+        textWriter.writeToFile(content);
+
+        System.out.println("File process ended");
     }
 }
 
